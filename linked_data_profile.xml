@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<marcedit_linked_data_profile>
+  <!-- 
+    Last Change: 04/24/2018
+    Changes: 
+    Added new collections: 
+      - dbpedia
+      - isni
+    Added new rules for 024 field
+      - specifically processing isni
+      
+    rules block:
+        top level: field
+            Attributes:
+                type: authority, bibliographic, authority|bibliographic
+            tag (required): 
+                Value: Field value
+                Description: field to process
+            subfield (required): 
+                Value: Subfield codes 
+                Description: subfields to use for matching
+            ind2 (optional):
+                Attributes:
+                  value: second indicator value
+                  vocab: matches a valid vocabulary option
+            index (optional): 
+                Values: subfield code or empty
+                Description: field that denotes index
+            sticky (optional):
+                Values: subfield codes that should always be part of an atomized field (i.e., abc)
+                Description: When processing atomized data, some subfields are applicable to all information within 
+                a field block.  These are sticky values, and should be marked to ensure that they replicate between 
+                atomized versions of a field set.
+            atomize(optional): 
+                Values: 1 or empty
+                Description: determines if field should be broken up for uri disambiguation
+            special_instructions (optional): 
+                Values: name|personal_name|subject|mixed
+                Description: special instructions to improve normalization for names and subjects.  
+            uri (required):
+                Values: subfield code to include a url
+                Description: Used to determine which subfield is used to embed a URI
+            vocab (optional); attributes (optional) [subfield]: 
+                Values (see supported vocabularies section)
+                Description: when no index is supplied, you can predefine a supported index
+                Attribute: subfield - overrides the global uri value and denotes the subfield for 
+                uri insertion.
+                
+                          
+                
+                
+  Supported Vocabularies:
+    Value: lcshac 
+    Description: LC Childrens Subjects
+    
+    Value: lcdgt
+    Description: LC Demographic Terms
+    
+    Value: lcsh
+    Description: LC Subjects
+    
+    Value: lctmg
+    Description: TGM
+    
+    Value: aat
+    Description: Getty Arts and Architecture Thesaurus
+    
+    Value: ulan
+    Description: Getty ULAN
+    
+    Value: lcgft
+    Description: LC Genre Forms
+   
+   Value: lcmpt
+   Descirption: LC Medium Performance Thesaurus
+   
+   Value: naf
+   Description: LC NACO Terms
+   
+   Value: naf_lcsh
+   Description: lcsh/naf combined indexes.
+   
+   Value: mesh
+   Description: MESH indexes
+    -->
+  <rules>
+    <field type="authority|bibliographic">
+      <tag>024</tag>
+      <subfields>a</subfields>
+      <uri>0</uri>
+      <index>2</index>
+    </field>
+    <field type="bibliographic">
+      <tag>100</tag>
+      <subfields>abcdqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>personal_name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+      <!--<vocab subfield="1">dbpedia_person</vocab>-->
+    </field>
+    <field type="bibliographic">
+      <tag>110</tag>
+      <subfields>abcdqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>111</tag>
+      <subfields>acdefqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>130</tag>
+      <subfields>adfkqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>600</tag>
+      <subfields>abcdqnptxvyz</subfields>
+      <ind2 value="0" vocab="naf_lcsh"/>
+      <ind2 value="1" vocab="lcshac"/>
+      <ind2 value="2" vocab="mesh"/>
+      <ind2 value="7" vocab="none"/>
+      <index>2</index>
+      <uri>0</uri>
+      <vocab subfield="1">viaf</vocab>
+      <special_instructions>mixed</special_instructions>
+    </field>
+    <field type="bibliographic">
+      <tag>610</tag>
+      <ind2 value="0" vocab="naf_lcsh"/>
+      <ind2 value="1" vocab="lcshac"/>
+      <ind2 value="2" vocab="mesh"/>
+      <ind2 value="7" vocab="none"/>
+      <vocab subfield="1">viaf</vocab>
+      <subfields>abcdqnptxvyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <special_instructions>mixed</special_instructions>
+    </field>
+    <field type="bibliographic">
+      <tag>611</tag>
+      <ind2 value="0" vocab="naf_lcsh"/>
+      <ind2 value="1" vocab="lcshac"/>
+      <ind2 value="2" vocab="mesh"/>
+      <ind2 value="7" vocab="none"/>
+      <subfields>acdefqnptxvyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <vocab subfield="1">viaf</vocab>
+      <special_instructions>mixed</special_instructions>
+    </field>
+    <field type="bibliographic">
+      <tag>630</tag>
+      <ind2 value="0" vocab="naf_lcsh"/>
+      <ind2 value="1" vocab="lcshac"/>
+      <ind2 value="2" vocab="mesh"/>
+      <ind2 value="7" vocab="none"/>
+      <subfields>adfkqnpxvyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <special_instructions>mixed</special_instructions>
+    </field>
+    <field type="authority|bibliographic">
+      <tag>336</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+    </field>
+    <field type="bibliographic">
+      <tag>337</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+    </field>
+    <field type="bibliographic">
+      <tag>338</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+    </field>
+    <!-- 
+      The 382 field is currently under-discussion
+      with the PCC Task Force.  Until this is settled, 
+      the default option is to turn it off.
+      
+    <field type="authority|bibliographic">
+      <tag>382</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    -->
+    <field type="authority|bibliographic">
+      <tag>385</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    <field type="authority">
+      <tag>372</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    <field type="authority">
+      <tag>375</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    <field type="authority">
+      <tag>376</tag>
+      <subfields>ab</subfields>
+      <index>2</index>
+      <uri>0</uri>
+    </field>
+    <field type="authority|bibliographic">
+      <tag>370</tag>
+      <subfields>abcefg</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    <field type="authority">
+      <tag>373</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+    </field>
+    <field type="authority">
+      <tag>374</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    <field type="authority">
+      <tag>368</tag>
+      <subfields>abc</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    <field type="authority|bibliographic">
+      <tag>380</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <atomize>1</atomize>
+    </field>
+    <field type="authority|bibliographic">
+      <tag>386</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <sticky>n</sticky>
+      <atomize>1</atomize>
+      <uri>0</uri>
+    </field>
+    <field type="authority|bibliographic">
+      <tag>388</tag>
+      <subfields>a</subfields>
+      <index>2</index>
+      <atomize>1</atomize>
+      <uri>0</uri>
+    </field>
+    <field type="bibliographic">
+      <tag>630</tag>
+      <subfields>abvxyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+    </field>
+    <field type="bibliographic">
+      <tag>648</tag>
+      <subfields>abvxyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+    </field>
+    <field type="bibliographic">
+      <tag>650</tag>
+      <subfields>abvxyz</subfields>
+      <ind2 value="0" vocab="lcsh"/>
+      <ind2 value="1" vocab="lcshac"/>
+      <ind2 value="2" vocab="mesh"/>
+      <ind2 value="7" vocab="none"/>
+      <index>2</index>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+    </field>
+    <field type="bibliographic">
+      <tag>651</tag>
+      <ind2 value="0" vocab="naf_lcsh"/>
+      <ind2 value="1" vocab="lcshac"/>
+      <ind2 value="2" vocab="mesh"/>
+      <ind2 value="7" vocab="none"/>
+      <subfields>abvxyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+    </field>
+    <field type="bibliographic">
+      <tag>655</tag>
+      <ind2 value="0" vocab="naf_lcsh"/>
+      <ind2 value="1" vocab="lcshac"/>
+      <ind2 value="2" vocab="mesh"/>
+      <ind2 value="7" vocab="none"/>
+      <subfields>abvxyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+    </field>
+    <field type="authority">
+      <tag>500</tag>
+      <subfields>abcdeflmnopqrst</subfields>
+      <uri>0</uri>
+      <special_instructions>name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+    </field>
+    <field type="authority">
+      <tag>510</tag>
+      <subfields>abcdeflmnopqrst</subfields>
+      <special_instructions>name</special_instructions>
+      <uri>0</uri>
+      <vocab subfield="0">naf</vocab>
+    </field>
+    <field type="authority">
+      <tag>511</tag>
+      <subfields>abcdeflmnopqrst</subfields>
+      <special_instructions>name</special_instructions>
+      <uri>0</uri>
+      <vocab subfield="0">naf</vocab>
+    </field>
+    <field type="authority">
+      <tag>530</tag>
+      <subfields>abcdeflmnopqrst</subfields>
+      <special_instructions>name</special_instructions>
+      <uri>0</uri>
+      <vocab subfield="0">naf</vocab>
+    </field>
+    <field type="authority">
+      <tag>550</tag>
+      <subfields>abvyz</subfields>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+      <vocab subfield="0">lcsh</vocab>
+    </field>
+    <field type="authority">
+      <tag>551</tag>
+      <subfields>av</subfields>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+      <vocab subfield="0">naf_lcsh</vocab>
+    </field>
+    <field type="authority">
+      <tag>555</tag>
+      <subfields>av</subfields>
+      <uri>0</uri>
+      <special_instructions>subject</special_instructions>
+      <vocab subfield="0">lcgft</vocab>
+    </field>
+    <field type="authority">
+      <tag>562</tag>
+      <subfields>a</subfields>
+      <uri>0</uri>
+      <vocab subfield="0">lcmpt</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>700</tag>
+      <subfields>abcdqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>personal_name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>710</tag>
+      <subfields>abcdqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>711</tag>
+      <subfields>acdefqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>730</tag>
+      <subfields>adfkqnpt</subfields>
+      <uri>0</uri>
+      <special_instructions>name</special_instructions>
+      <vocab subfield="0">naf</vocab>
+      <vocab subfield="1">viaf</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>751</tag>
+      <subfields>abvxyz</subfields>
+      <index>2</index>
+      <uri>0</uri>
+      <vocab subfield="0">naf_lcsh</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>830</tag>
+      <subfields>adf</subfields>
+      <uri>0</uri>
+      <vocab subfield="0">naf_lcsh</vocab>
+    </field>
+    <field type="bibliographic">
+      <tag>880</tag>
+      <subfields>6</subfields>
+      <uri>0</uri>
+      <special_instructions>linking</special_instructions>
+    </field>
+  </rules>
+
+  <!-- 
+    collections block
+      top level: collection
+        attributes: none
+        
+        name (required):
+            Value: Defines the name of the service
+         label (required):
+            Value: Defines the index name used within the record to identify the vocabulary.  
+                 Example: =650  \7$aTest$2fast
+                 The label would be defined as <label>fast</label>
+         uri (required):
+            Value: The URL MarcEdit will use to query the endpoint.  Use {search_terms} to denote 
+                   the placeholder where MarcEdit should include search terms.  Please note that arguements 
+                   need to be encoded.  Use: http://string-functions.com/urlencode.aspx or other tools to 
+                   URL encode the string to ensure proper communication.  MarcEdit will only encode the 
+                   Search Terms as it injects them into the URI.  The tool assumes you, the user, have properly 
+                   encoded any other required data.  For examples, see the Japanese Diet Configuration below:
+                       <collection>
+                          <name>Japanese Diet Library</name>
+                          <label>jlabsh/4</label>
+                          <uri>http://id.ndl.go.jp/auth/ndla?query=PREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%20SELECT%20*%20WHERE%20%7B%20%3Fsubj%20rdfs%3Alabel%20%22{search_terms}%22%7D&amp;output=json</uri>
+                          <path>results.bindings[0].subj.value</path>
+                        </collection>
+         path (required): 
+            Value: For user defined collections, path is required.  This defines the json object path
+                   to the URI.  
+                   Example: results.bindings[0].subj.value
+  -->
+  <collections>
+    <collection>
+      <name>US Library of Congress Atom Query</name>
+      <label>lcsh_atom</label>
+      <uri>http://id.loc.gov/search/?q=%22{search_terms}%22&amp;start=1&amp;format=atom</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>US Library of Congress NACO Service</name>
+      <label>naf</label>
+      <uri>http://id.loc.gov/authorities/names/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>US Library of Congress Subject Heading</name>
+      <label>lcsh</label>
+      <uri>http://id.loc.gov/authorities/subjects/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>US Library of Congress Names and Subjects</name>
+      <label>naf_lcsh</label>
+      <uri>http://id.loc.gov/authorities/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>US Library of Congress Children's Subject Headings</name>
+      <label>lcshac</label>
+      <uri>http://id.loc.gov/authorities/childrensSubjects/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>US Library of Congress Demographic Group Terms</name>
+      <label>lcdgt</label>
+      <uri>http://id.loc.gov/authorities/demographicTerms/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>Thesaurus for Graphic Materials</name>
+      <label>tgm</label>
+      <label>lctgm</label>
+      <uri>http://id.loc.gov/authorities/graphicMaterials/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>US Library of Congress Genre/Form Terms</name>
+      <label>lcgft</label>
+      <uri>http://id.loc.gov/authorities/genreForms/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>US Library of Congress Medium of Performance Thesaurus for Music</name>
+      <label>lcmpt</label>
+      <uri>http://id.loc.gov/authorities/performanceMediums/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>RDA Content Types</name>
+      <label>rdacontent</label>
+      <uri>http://id.loc.gov/authorities/contentTypes/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>RDA Media Types</name>
+      <label>rdamedia</label>
+      <uri>http://id.loc.gov/authorities/mediaTypes/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>RDA Carrier Types</name>
+      <label>rdacarrier</label>
+      <uri>http://id.loc.gov/authorities/carriers/label/{search_terms}</uri>
+      <path/>
+    </collection>
+    <collection>
+      <name>Getty Arts and Architecture Thesaurus</name>
+      <label>aat</label>
+      <uri>http://vocab.getty.edu/sparql.json?query=select%20*%20%7B%3Fsubj%20rdfs%3Alabel%20%22{search_terms}%22%40en%7D&amp;toc=Combination_Full-Text_and_Exact_String_Match&amp;implicit=true&amp;equivalent=false&amp;_form=/queriesF</uri>
+      <path>results.bindings[0].subj.value</path>
+    </collection>
+    <collection>
+      <name>Getty ULAN</name>
+      <label>ulan</label>
+      <uri>http://vocab.getty.edu/sparql.json?query=select%20%3FSubject%20%3FTerm%20%3FParents%20%3FScopeNote%20%7B%0A%0A%20%20%3FSubject%20a%20skos%3AConcept%3B%20luc%3Aterm%20'%20%22{search_terms}%22%20'%3B%0A%0A%20%20%20%20%20gvp%3AprefLabelGVP%20%5Bxl%3AliteralForm%20%3FTerm%5D.%0A%0A%20%20optional%20%7B%3FSubject%20gvp%3AparentStringAbbrev%20%3FParents%7D%0A%0A%20%20optional%20%7B%3FSubject%20skos%3AscopeNote%20%5Bdct%3Alanguage%20gvp_lang%3Aen%3B%20rdf%3Avalue%20%3FScopeNote%5D%7D%7D%0A&amp;toc=Combination_Full-Text_and_Exact_String_Match&amp;implicit=true&amp;equivalent=false&amp;_form=/queriesF</uri>
+      <path>results.bindings[0].Subject.value</path>
+    </collection>
+    <collection>
+      <name>Medical Subject Headings</name>
+      <label>mesh</label>
+      <uri>https://id.nlm.nih.gov/mesh/sparql?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0ASELECT+*%0D%0AFROM+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%3E%0D%0AWHERE+%7B%0D%0A++%3Fd+a+meshv%3A{descriptor_label}+.%0D%0A++%3Fd+rdfs%3Alabel+%22{search_terms}%22%40en%0D%0A+++++%0D%0A%7D+%0D%0A&amp;format=JSON&amp;inference=true&amp;year=current&amp;limit=50&amp;offset=0#lodestart-sparql-results</uri>
+      <path>results.bindings[0].d.value</path>
+    </collection>
+    <collection>
+      <name>OCLC FAST Headings</name>
+      <label>fast</label>
+      <uri>http://fast.oclc.org/searchfast/fastsuggest?&amp;query={search_terms}&amp;queryIndex=suggestall&amp;queryReturn=suggestall%2Cidroot%2Cauth&amp;suggest=autoSubject&amp;rows=1</uri>
+      <!--The pattern is designed for users that include a control number in the $0 - this expands it.  Pattern is the URL 
+          necessary to contruct the URI with the identifier in the $0-->
+      <pattern>http://id.worldcat.org/fast/{id}</pattern>
+      <path/>
+    </collection>
+    <collection>
+      <name>OCLC VIAF</name>
+      <label>viaf</label>
+      <!-- 
+        <uri>http://viaf.org/viaf/search?query=local.mainHeadingEl+all+%22{search_terms}%22{source_terms}+&amp;maximumRecords={max_terms}&amp;startRecord=1&amp;sortKeys=holdingscount&amp;http:accept=application/rss%2bxml</uri>
+      -->
+      <uri>http://viaf.org/viaf/search?query=local.names+all+%22{search_terms}%22&amp;maximumRecords={max_terms}&amp;startRecord=1&amp;sortKeys=holdingscount&amp;http:accept=application/json</uri>
+      <path>searchRetrieveResponse.records[0].record.recordData.Document.@about</path>
+    </collection>
+    <collection>
+      <name>National Library of Israel VIAF</name>
+      <label>nli</label>
+      <uri>http://viaf.org/viaf/search?query=local.mainHeadingEl+all+%22{search_terms}%22nli+&amp;maximumRecords=1&amp;startRecord=1&amp;sortKeys=holdingscount&amp;http:accept=application/json</uri>
+      <path>searchRetrieveResponse.records[0].record.recordData.Document.@about</path>
+    </collection>
+    <collection>
+      <name>Japanese Diet Library</name>
+      <label>jlabsh/4</label>
+      <uri>http://id.ndl.go.jp/auth/ndla?query=PREFIX+rdfs%3a+%3chttp%3a%2f%2fwww.w3.org%2f2000%2f01%2frdf-schema%23%3e+%0d%0aPREFIX+xl%3a+%3chttp%3a%2f%2fwww.w3.org%2f2008%2f05%2fskos-xl%23%3e%0d%0aSELECT+%3fsubj+WHERE+%7b+%0d%0a+%7b%3fsubj+rdfs%3alabel+%3fheading%7d+UNION%0d%0a+%7b%3fsubj+xl%3aaltLabel+%5b+xl%3aliteralForm+%3fheading%5d%7d%0d%0a+filter+(%3fheading+%3d+%22{search_terms}%22)%0d%0a+%7d&amp;output=json</uri>
+      <path>results.bindings[0].subj.value</path>
+    </collection>
+    <collection>
+      <name>German National Library</name>
+      <label>gnd</label>
+      <pattern>http://d-nb.info/gnd/{id}</pattern>
+    </collection>
+    <collection>
+      <name>The National Library of Korea</name>
+      <label>local/OSU/kdl</label>
+      <uri>http://lod.nl.go.kr/sparql?query=select+%3Furi+where+%7B+%3Furi+rdfs%3Alabel+%22{search_terms}%22+%7D%0D%0A&amp;type=json&amp;request_method=get</uri>
+      <path>results.bindings[0].uri.value</path>
+    </collection>
+    <collection>
+      <name>International Standard Name Identifier</name>
+      <label>isni</label>
+      <pattern>http://isni.org/isni/{id}</pattern>
+    </collection>
+    <collection>
+      <name>DBPedia</name>
+      <label>dbpedia_person</label>
+      <uri>http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=person&amp;QueryString={search_terms}&amp;MaxHits=1</uri>
+      <path>results[0].uri</path>
+      <acceptheaders>application/json</acceptheaders>
+      <regex>
+        <pattern>([^,]*)([, ]*)([^,]*)(.*)</pattern>
+        <replace>$3 $1</replace>
+      </regex>
+    </collection>
+    <collection>
+      <name>DBPedia</name>
+      <label>dbpedia_place</label>
+      <uri>http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&amp;QueryString={search_terms}&amp;MaxHits=1</uri>
+      <path>results[0].uri</path>
+      <acceptheaders>application/json</acceptheaders>
+      <regex>
+        <pattern>([^,]*)([, ]*)([^,]*)(.*)</pattern>
+        <replace>$3 $1</replace>
+      </regex>
+    </collection>
+  </collections>
+</marcedit_linked_data_profile>
